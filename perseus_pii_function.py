@@ -16,8 +16,6 @@ registry.load_predefined_recognizers(languages=['en'])
 # Set up analyzer with our updated recognizer registry
 analyzer = AnalyzerEngine(registry=registry)
 anonymizer = AnonymizerEngine()
-
-@bf.remote_function([str, str], str, dataset='test', name='hash_pii_venkat', reuse=True, bigquery_connection='perseus-curation-stg-1274.us.perseus-curation-stg-1274_cloud_resource_connection', cloud_function_memory_mib='3000', max_batching_rows=1000)
 def hash_pii_using_presidio(text, entities=None):
 
     if entities is None:
