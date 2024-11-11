@@ -6,7 +6,7 @@ from presidio_structured import StructuredEngine, PandasAnalysisBuilder
 from presidio_anonymizer.entities import OperatorConfig
 bf.close_session()
 bf.options.bigquery.location = "us" #this variable is set based on the dataset you chose to query
-bf.options.bigquery.project = "dh-data-platform-analytics" #this variable is set based on the dataset you chose to query
+bf.options.bigquery.project = "perseus-curation-stg-1274" #this variable is set based on the dataset you chose to query
 from presidio_analyzer import AnalyzerEngine, RecognizerRegistry
 from presidio_anonymizer import AnonymizerEngine
 
