@@ -2,8 +2,6 @@ import bigframes.pandas as bf
 import pandas as pd
 from bigframes.dataframe import DataFrame
 from typing import Any, Callable, Dict, List, Union
-from presidio_structured import StructuredEngine, PandasAnalysisBuilder
-from presidio_anonymizer.entities import OperatorConfig
 bf.close_session()
 bf.options.bigquery.location = "us" #this variable is set based on the dataset you chose to query
 bf.options.bigquery.project = "perseus-curation-stg-1274" #this variable is set based on the dataset you chose to query
