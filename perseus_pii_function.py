@@ -10,8 +10,8 @@ from presidio_anonymizer import AnonymizerEngine
 analyzer = AnalyzerEngine()
 anonymizer = AnonymizerEngine()
 
-@bf.remote_function([str, str], str, packages=["presidio_anonymizer", "presidio_analyzer"], dataset='test', name='hash_pii_venkat', reuse=True, bigquery_connection='perseus-curation-stg-1274.us.perseus-curation-stg-1274_cloud_resource_connection', cloud_function_memory_mib='3000', max_batching_rows=1000)
-def hash_pii_using_presidio(text, entities=None):
+#@bf.remote_function([str, str], str, packages=["presidio_anonymizer", "presidio_analyzer"], dataset='test', name='hash_pii_venkat', reuse=True, bigquery_connection='perseus-curation-stg-1274.us.perseus-curation-stg-1274_cloud_resource_connection', cloud_function_memory_mib='3000', max_batching_rows=1000)
+def hash_pii_using_presidio('venk.113@gmail.com', entities='EMAIL_ADDRESS'):
 
     if entities is None:
         entities = ['IBAN_CODE', "EMAIL_ADDRESS", "PHONE_NUMBER", "CREDIT_CARD", 'IP_ADDRESS', 'PERSON']
