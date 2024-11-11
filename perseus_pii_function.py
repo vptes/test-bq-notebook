@@ -1,3 +1,12 @@
+import bigframes.pandas as bf
+import pandas as pd
+from bigframes.dataframe import DataFrame
+from typing import Any, Callable, Dict, List, Union
+from presidio_structured import StructuredEngine, PandasAnalysisBuilder
+from presidio_anonymizer.entities import OperatorConfig
+bf.close_session()
+bf.options.bigquery.location = "us" #this variable is set based on the dataset you chose to query
+bf.options.bigquery.project = "perseus-curation-stg-1274" #this variable is set based on the dataset you chose to query
 from presidio_analyzer import AnalyzerEngine, RecognizerRegistry
 from presidio_anonymizer import AnonymizerEngine
 
@@ -8,7 +17,7 @@ registry.load_predefined_recognizers(languages=['en'])
 analyzer = AnalyzerEngine(registry=registry)
 anonymizer = AnonymizerEngine()
 
-@bf.remote_function([str, str], str, packages=["presidio_anonymizer", "presidio_analyzer"], dataset='sandbox_hardik', name='hash_pii', reuse=True, bigquery_connection='dh-data-platform-analytics.us.vertex-ai', cloud_function_memory_mib='3000', max_batching_rows=1000)
+@bf.remote_function([str, str], str, packages=["presidio_anonymizer", "presidio_analyzer"], dataset='test', name='hash_pii_venkat', reuse=True, bigquery_connection='dh-data-platform-analytics.us.vertex-ai', cloud_function_memory_mib='3000', max_batching_rows=1000)
 def hash_pii_using_presidio(text, entities=None):
 
     if entities is None:
