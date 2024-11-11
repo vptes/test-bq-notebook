@@ -1,3 +1,5 @@
+import presidio_analyzer
+import presidio_anonymizer
 import bigframes.pandas as bf
 import pandas as pd
 from bigframes.dataframe import DataFrame
