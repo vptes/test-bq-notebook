@@ -1,4 +1,3 @@
-import bigframes.pandas as bf
 import pandas as pd
 from bigframes.dataframe import DataFrame
 from typing import Any, Callable, Dict, List, Union
